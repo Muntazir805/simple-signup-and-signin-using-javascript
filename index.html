@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f7ff">
+
+    <title>Create Account | Firebase Auth</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+
+    <main class="auth-container">
+        <section class="auth-card">
+
+            <div class="auth-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">F</span>
+                    <span>Firebase<span class="brand-light">Auth</span></span>
+                </a>
+
+                <div class="brand-content">
+                    <span class="eyebrow">GET STARTED</span>
+                    <h2>Build something amazing.</h2>
+                    <p>Create your account and start your journey with us.</p>
+                </div>
+
+                <div class="brand-illustration" aria-hidden="true">
+                    <div class="illustration-circle"></div>
+                    <div class="illustration-card">
+                        <span class="illustration-check">✓</span>
+                        <div class="illustration-line long"></div>
+                        <div class="illustration-line"></div>
+                        <div class="illustration-line short"></div>
+                    </div>
+                    <div class="floating-icon">✦</div>
+                </div>
+
+                <div class="brand-footer">
+                    <span class="status-dot"></span>
+                    Secure authentication powered by Firebase
+                </div>
+            </div>
+
+            <div class="auth-form-section">
+                <div class="form-heading">
+                    <span class="eyebrow">YOUR ACCOUNT</span>
+                    <h1>Create your account</h1>
+                    <p>Enter your details to get started.</p>
+                </div>
+
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="userEmail">Email address</label>
+                        <input
+                            type="email"
+                            id="userEmail"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="userPassword"
+                                name="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required
+                            >
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-toggle="userPassword"
+                                aria-label="Show password"
+                            >Show</button>
+                        </div>
+                        <p class="field-hint">Use at least 6 characters.</p>
+                    </div>
+
+                    <div
+                        id="signupMessage"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                    <button type="submit" id="signup" class="primary-button">
+                        <span>Create account</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="login.html">Sign in</a>
+                </p>
+
+                <p class="terms-text">
+                    By continuing, you agree to use this application responsibly.
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>

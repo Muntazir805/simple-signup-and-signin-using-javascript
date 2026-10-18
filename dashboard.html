@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7ff" />
+
+    <title>Dashboard | Firebase Auth</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <script type="module" src="dashboard.js"></script>
+  </head>
+  <body class="dashboard-page">
+    <header class="dashboard-header">
+      <a href="dashboard.html" class="brand">
+        <span class="brand-icon">F</span>
+        <span>Firebase<span class="brand-light">Auth</span></span>
+      </a>
+
+      <div class="header-actions">
+        <span class="online-indicator">
+          <span class="status-dot"></span>
+          Signed in
+        </span>
+
+        <button type="button" id="logout" class="logout-button">
+          Sign out <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-container">
+      <section class="welcome-section">
+        <div>
+          <span class="eyebrow">YOUR PERSONAL SPACE</span>
+          <h1>Welcome back, <span id="userName">User</span>!</h1>
+          <p>You're signed in. Here's your account overview.</p>
+        </div>
+
+        <div class="welcome-icon" aria-hidden="true">
+          <span>✦</span>
+        </div>
+      </section>
+
+      <section class="dashboard-stats" aria-label="Account overview">
+        <article class="dashboard-card">
+          <div class="card-top">
+            <span class="card-label">Account status</span>
+            <span class="card-icon purple">✓</span>
+          </div>
+          <h2 class="stat-value">Active</h2>
+          <p class="card-description">Your session is authenticated.</p>
+        </article>
+
+        <article class="dashboard-card">
+          <div class="card-top">
+            <span class="card-label">Sign-in method</span>
+            <span class="card-icon blue">↗</span>
+          </div>
+          <h2 class="stat-value" id="providerName">Loading...</h2>
+          <p class="card-description">Method used for your current account.</p>
+        </article>
+
+        <article class="dashboard-card">
+          <div class="card-top">
+            <span class="card-label">Email verification</span>
+            <span class="card-icon green">✓</span>
+          </div>
+          <h2 class="stat-value" id="verificationStatus">Checking...</h2>
+          <p class="card-description">Your email verification status.</p>
+        </article>
+      </section>
+
+      <section class="account-section">
+        <div class="section-heading">
+          <div>
+            <h2>Account information</h2>
+            <p>Details associated with your Firebase account.</p>
+          </div>
+          <span class="account-badge">My account</span>
+        </div>
+
+        <div class="account-details">
+          <div class="profile-avatar" id="userAvatar" aria-hidden="true">U</div>
+
+          <div class="account-info">
+            <h3 id="accountName">Loading...</h3>
+            <p id="accountEmail">Loading your email...</p>
+
+            <div class="account-meta">
+              <span class="meta-dot"></span>
+              Authenticated with Firebase
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="security-notice">
+        <div class="security-icon" aria-hidden="true">✓</div>
+        <div>
+          <h3>You're securely signed in</h3>
+          <p>
+            Your account is managed by Firebase Authentication. Sign out when
+            you're finished using this device.
+          </p>
+        </div>
+      </section>
+
+      <footer class="dashboard-footer">
+        <p>Firebase Auth Demo</p>
+        <p>Learn · Build · Improve</p>
+      </footer>
+
+      <div
+        id="dashboardMessage"
+        class="form-message"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </main>
+  </body>
+</html>

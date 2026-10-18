@@ -1,0 +1,587 @@
+
+/* ==============================
+   1. Reset and global styles
+============================== */
+
+:root {
+    --primary: #3563e9;
+    --primary-dark: #244ac0;
+    --background: #f3f6ff;
+    --surface: #ffffff;
+    --text: #17233f;
+    --muted: #74809a;
+    --border: #e0e6f0;
+    --success: #15803d;
+    --danger: #dc2626;
+    --radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 10% 10%, #dce8ff 0, transparent 35%),
+        radial-gradient(circle at 90% 90%, #e3eaff 0, transparent 35%),
+        var(--background);
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* ==============================
+   2. Main layout
+============================== */
+
+.auth-container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 40px 24px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 1000px;
+    min-height: 590px;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    background: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(38, 63, 115, 0.12);
+}
+
+/* ==============================
+   3. Branding panel
+============================== */
+
+.auth-brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 32px 28px;
+    overflow: hidden;
+    background: linear-gradient(155deg, #edf3ff, #f8faff 75%);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    color: var(--text);
+    font-size: 23px;
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+.brand:hover {
+    color: var(--text);
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    color: white;
+    background: linear-gradient(140deg, #ffbf47, #f57c00);
+    border-radius: 11px;
+    font-size: 23px;
+    font-weight: 800;
+    box-shadow: 0 5px 12px rgba(245, 124, 0, 0.2);
+}
+
+.brand-light {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.brand-content {
+    margin-top: 64px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.brand-content h2 {
+    max-width: 280px;
+    font-size: clamp(25px, 3vw, 32px);
+    line-height: 1.25;
+    letter-spacing: -1px;
+}
+
+.brand-content p {
+    max-width: 280px;
+    margin-top: 14px;
+    color: #657491;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* CSS illustration: no external image required */
+
+.brand-illustration {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 190px;
+    margin: 22px 0;
+}
+
+.illustration-circle {
+    position: absolute;
+    width: 174px;
+    height: 174px;
+    background: linear-gradient(135deg, #dce8ff, #c4d5ff);
+    border-radius: 50%;
+}
+
+.illustration-card {
+    position: relative;
+    z-index: 1;
+    width: 156px;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dbe5ff;
+    border-radius: 18px;
+    box-shadow: 0 18px 35px rgba(53, 99, 233, 0.16);
+    transform: rotate(-5deg);
+}
+
+.illustration-check {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 19px;
+    color: white;
+    background: linear-gradient(135deg, #5a83ff, #3563e9);
+    border-radius: 13px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.illustration-line {
+    width: 75%;
+    height: 7px;
+    margin-top: 10px;
+    background: #dfe7fa;
+    border-radius: 10px;
+}
+
+.illustration-line.long {
+    width: 100%;
+}
+
+.illustration-line.short {
+    width: 48%;
+}
+
+.floating-icon {
+    position: absolute;
+    z-index: 2;
+    top: 28px;
+    right: 25px;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: #b66a00;
+    background: #fff1cc;
+    border: 4px solid white;
+    border-radius: 14px;
+    font-size: 22px;
+}
+
+.brand-footer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: auto;
+    color: #7785a0;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.status-dot {
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+/* ==============================
+   4. Form section
+============================== */
+
+.auth-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 52px clamp(28px, 5vw, 64px);
+}
+
+.form-heading {
+    margin-bottom: 34px;
+}
+
+.form-heading h1 {
+    font-size: clamp(25px, 3vw, 31px);
+    line-height: 1.3;
+    letter-spacing: -1px;
+}
+
+.form-heading p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ==============================
+   5. Inputs and labels
+============================== */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #34415b;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.form-group input {
+    width: 100%;
+    min-width: 0;
+    height: 51px;
+    padding: 0 15px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid #dce3ef;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #a0aabd;
+}
+
+.form-group input:hover {
+    border-color: #b8c6e4;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(53, 99, 233, 0.1);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    padding: 6px 2px;
+    color: var(--primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 650;
+    transform: translateY(-50%);
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.field-hint {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ==============================
+   6. Buttons
+============================== */
+
+.primary-button,
+.google-button {
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-button {
+    justify-content: space-between;
+    margin-top: 9px;
+    padding: 0 19px;
+    color: white;
+    background: linear-gradient(110deg, #3563e9, #4c7bfa);
+    border: 1px solid transparent;
+    box-shadow: 0 7px 15px rgba(53, 99, 233, 0.16);
+}
+
+.primary-button > span:first-child {
+    flex: 1;
+    text-align: center;
+    padding-left: 20px;
+}
+
+.primary-button > span:last-child {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.primary-button:hover {
+    background: linear-gradient(110deg, #244ac0, #3563e9);
+    box-shadow: 0 9px 20px rgba(53, 99, 233, 0.23);
+    transform: translateY(-1px);
+}
+
+.primary-button:active,
+.google-button:active {
+    transform: translateY(0);
+}
+
+.primary-button:disabled,
+.google-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.google-button {
+    color: #34415b;
+    background: #fff;
+    border: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.google-button:hover {
+    background: #f8faff;
+    border-color: #b9c8eb;
+}
+
+.google-button svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+/* ==============================
+   7. Divider and account links
+============================== */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 28px 0;
+    color: #99a4b8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.auth-switch {
+    margin-top: 29px;
+    color: #778198;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.auth-switch a {
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+.terms-text {
+    margin-top: 24px;
+    color: #9aa4b6;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* ==============================
+   8. Feedback messages
+============================== */
+
+.form-message {
+    display: none;
+    margin-bottom: 15px;
+    padding: 11px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.form-message:not(:empty) {
+    display: block;
+}
+
+.form-message.success {
+    color: var(--success);
+    background: #ecfdf3;
+    border: 1px solid #bbf7d0;
+}
+
+.form-message.error {
+    color: var(--danger);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+/* ==============================
+   9. Responsive design
+============================== */
+
+@media (max-width: 760px) {
+    .auth-container {
+        padding: 24px 16px;
+    }
+
+    .auth-card {
+        max-width: 470px;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+    }
+
+    .auth-brand {
+        padding: 25px 28px 22px;
+    }
+
+    .brand {
+        font-size: 21px;
+    }
+
+    .brand-content {
+        margin-top: 30px;
+    }
+
+    .brand-content h2 {
+        max-width: 100%;
+        font-size: 25px;
+    }
+
+    .brand-content p {
+        max-width: 100%;
+        margin-top: 8px;
+    }
+
+    .brand-illustration {
+        display: none;
+    }
+
+    .brand-footer {
+        margin-top: 24px;
+    }
+
+    .auth-form-section {
+        padding: 34px 28px 36px;
+    }
+
+    .form-heading {
+        margin-bottom: 27px;
+    }
+}
+
+@media (max-width: 380px) {
+    .auth-container {
+        padding: 14px 10px;
+    }
+
+    .auth-brand {
+        padding: 22px 20px;
+    }
+
+    .auth-form-section {
+        padding: 28px 20px;
+    }
+
+    .form-heading h1 {
+        font-size: 24px;
+    }
+
+    .form-group input {
+        height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
